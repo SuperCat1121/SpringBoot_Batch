@@ -14,6 +14,8 @@ import org.springframework.batch.core.repository.JobExecutionAlreadyRunningExcep
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.repository.JobRestartException;
+import org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean;
+import org.springframework.batch.core.repository.support.SimpleJobRepository;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.support.transaction.ResourcelessTransactionManager;
 import org.springframework.context.annotation.Bean;
@@ -22,20 +24,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableBatchProcessing
 public class BatchConfig {
-	
 	@Bean
-	public ResourcelessTransactionManager transactionManager() {
-		return new ResourcelessTransactionManager();
+	public MapJobRepositoryFactoryBean jobRepository() {
+		MapJobRepositoryFactoryBean jobRepository = new MapJobRepositoryFactoryBean();
+		//jobRepository.setTransactionManager();
+		return jobRepository;
 	}
 	
 	@Bean
-	public JobRepository jobRepository() {
-		return 
-	}
-	
-	@Bean
-	public SimpleJobLauncher jobLauncher() {
-		return new SimpleJobLauncher();
+	public SimpleJobLauncher jobLauncher(JobRepository jobRepository) {
+		SimpleJobLauncher jobLauncher = new SimpleJobLauncher();
+		jobLauncher.setJobRepository(jobRepository);
+		return jobLauncher;
 	}
 	
 	@Bean

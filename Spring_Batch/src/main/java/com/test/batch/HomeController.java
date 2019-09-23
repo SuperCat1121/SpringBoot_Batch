@@ -53,15 +53,17 @@ public class HomeController {
 		//test config = ctx.getBean(test.class);
 		//System.out.println(config.getName());
 		
-		//Step s = ctx.getBean(Step.class);
-		//System.out.println(s);
+		Step s = ctx.getBean(Step.class);
+		System.out.println(s);
 		
 		Job simpleJob = ctx.getBean(Job.class);
-		//System.out.println(simpleJob);
+		System.out.println(simpleJob);
 		
 		JobLauncher joblauncher = (JobLauncher) ctx.getBean(JobLauncher.class);
 		try {
 			JobExecution execution = joblauncher.run(simpleJob, new JobParameters());
+			System.out.println(execution);
+			logger.info("런쳐 실행 로그");
 			//System.out.println("Job Exit Status : " + execution.getStatus());
 		} catch (Exception e) {
 			e.printStackTrace();

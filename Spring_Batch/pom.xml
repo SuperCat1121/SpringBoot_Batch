@@ -13,7 +13,36 @@
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
+	<repositories>
+	  	<repository>
+	  		<id>Boundless</id>
+	  		<url>https://repo.spring.io/plugins-release/</url>
+	  	</repository>
+  	</repositories>
 	<dependencies>
+		<!-- Mybatis -->
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>2.0.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+		<dependency>
+		    <groupId>commons-dbcp</groupId>
+		    <artifactId>commons-dbcp</artifactId>
+		    <version>1.4</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/org.springframework.jdbc -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>org.springframework.jdbc</artifactId>
+		    <version>3.2.2.RELEASE</version>
+		</dependency>
+		
+	
 		<!-- Batch -->
 		<!-- https://mvnrepository.com/artifact/org.springframework.batch/spring-batch-core -->
 		<dependency>
