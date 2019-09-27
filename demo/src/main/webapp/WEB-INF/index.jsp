@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	index페이지
+	index페이지<br>
 	<c:forEach items="${list}" var="dto">
 		<c:out value="${dto.myno}"/><br>
 	</c:forEach>
