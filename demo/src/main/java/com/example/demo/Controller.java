@@ -24,7 +24,7 @@ public class Controller {
 	public String test(Model model) throws Exception {
 		model.addAttribute("list", biz.selectList());
 		
-		myJobLauncher.run(job, new JobParameters());
+		//myJobLauncher.run(job, new JobParameters());
 		
 		return "index";
 	}

@@ -61,7 +61,7 @@ public class BatchConfig {
 				.<testDto, testDto>chunk(2).reader(jdbcCursorItemReader())
 				.writer(jdbcBatchItemWriter()).build();
 	}
-	
+
 	// ItemReader
 	@Bean
 	public JdbcCursorItemReader<testDto> jdbcCursorItemReader() {
@@ -147,7 +147,6 @@ public class BatchConfig {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		factoryBean.setDataSource(datasource);
 		factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*.xml"));
-		factoryBean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:/config/config.xml"));
 		return factoryBean.getObject();
 	}
 	
